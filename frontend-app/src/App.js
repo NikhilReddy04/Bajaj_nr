@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { w3cwebsocket as W3CWebSocket } from 'websocket';
 
-const client = new W3CWebSocket('https://bajaj-nr.onrender.com/');
+// WebSocket URL pointing to the Render backend
+const client = new W3CWebSocket('wss://bajaj-nr.onrender.com');
 
 function App() {
     const [inputData, setInputData] = useState('');
@@ -38,7 +39,8 @@ function App() {
         }
 
         try {
-            const response = await axios.post('http://localhost:4000/bfhl', JSON.parse(inputData));
+            // Update the URL to point to the deployed backend on Render
+            const response = await axios.post('https://bajaj-nr.onrender.com/bfhl', JSON.parse(inputData));
             setResponseData(response.data);
             setError('');
         } catch (error) {
