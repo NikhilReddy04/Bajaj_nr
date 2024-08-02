@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { w3cwebsocket as W3CWebSocket } from 'websocket';
 
-const client = new W3CWebSocket('ws://localhost:4000');
+const client = new W3CWebSocket('https://bajaj-nr.onrender.com/');
 
 function App() {
     const [inputData, setInputData] = useState('');
